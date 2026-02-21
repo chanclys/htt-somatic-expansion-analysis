@@ -1,0 +1,12 @@
+Metric,Control_11,H1,H3
+Inherited CAG,25.95,55.94,66.09
+Max Somatic CAG,27.00,174.09,117.10
+Fold Expansion,1.04x,3.11x,1.77x
+Cells >100 CAG (%),0.00%,2.00%,1.27%
+Instability Index,0.00,1.49,0.72
+Weighted Burden Score,1.95,34.15,46.12
+Repeat Insertions (bp),12.2,84.7,118.6
+Repeat Complexity (%),5.9%,30.0%,37.7%
+Repeat-enriched Reads (%),100.0%,99.6%,99.7%
+Shannon Entropy,0.80,0.37,1.01
+Mosaicism Ratio,0.98,1.00,1.00

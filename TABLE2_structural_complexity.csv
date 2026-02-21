@@ -1,0 +1,4 @@
+Sample,Avg CAG Count (Expanded),Avg Insertions (bp),Avg Deletions (bp),Fold Change Insertions,Complex Reads %,Shannon Entropy
+Control_11,8.05,12.2,0.08,1.0,100.0,0.8
+H1,18.28,87.5,0.14,7.2,99.6,0.37
+H3,21.71,119.3,0.15,9.8,99.8,1.01

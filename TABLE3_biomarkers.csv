@@ -1,0 +1,7 @@
+Biomarker,Control_11,H1,H3,H1 vs Control,H3 vs Control
+Max Somatic Expansion,27,174,117,6.4x,4.3x
+Pathogenic Cells (>100 CAG),0.00%,2.00%,1.27%,∞,∞
+Instability Index,0.0,1.49,0.72,∞,∞
+Structural Complexity (Insertions),12.2,87.5,119.3,7.2x,9.8x
+Shannon Entropy (Heterogeneity),0.8,0.37,1.01,-54%,+26%
+Weighted Burden Score,1.95,34.15,46.12,17.5x,23.6x
