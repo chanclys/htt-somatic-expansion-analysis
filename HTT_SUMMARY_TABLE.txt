@@ -1,0 +1,14 @@
+TABLE 1: HTT CAG EXPANSION METRICS - COMPREHENSIVE SUMMARY
+======================================================================================================================================================
+
+            Total Reads Normal Allele (AL=0) CAG Expanded Allele (AL=1) CAG  Fold Expansion (median)  Fold Expansion (max)  Somatic Burden Score  % Any Expansion  % >100 CAG  % >500 CAG  Tail Fraction >100  Tail Mean CAG  Skewness
+Control_11         5022         24 (range 18-27)                26 (max 30)                     1.08                   1.2                   2.0             97.9        0.00        0.00                0.00            0.0     -5.39
+H1                 4567         26 (range 19-29)              51 (max 1394)                     1.96                  53.6                  29.9            100.0        2.00        0.13                2.00          236.0     21.63
+H3                 3033         23 (range 19-39)              63 (max 1078)                     2.74                  46.9                  43.1            100.0        1.27        0.20                1.27          262.0     20.77
+
+======================================================================================================================================================
+INTERPRETATION:
+- Fold Expansion: ratio of expanded allele CAG to normal allele CAG
+- Somatic Burden Score: average additional CAGs above normal baseline
+- Tail Fraction >100: percentage of reads with extreme expansion (>100 CAG)
+- Skewness: measure of distribution asymmetry (high skewness = long tail)

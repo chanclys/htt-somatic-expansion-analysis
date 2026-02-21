@@ -1,0 +1,5 @@
+Sample,Number of Reads,Median Mapped Read Length,Median Mapped Read Quality,Mean Target Coverage,Percent of Targets with ≥10-fold Coverage,Percent of Targets with ≥20-fold Coverage,Percent of Targets with ≥30-fold Coverage,Percent of Targets with Low Coverage (<5X),Percent of On-Target Reads,Percent of Duplicate Reads
+Control_11,"494,103","4,387",Q45,5484.13,100.00%,100.00%,100.00%,0.00%,42.18%,0.00%
+H1,"622,682","4,343",Q44,5300.08,100.00%,100.00%,100.00%,0.00%,32.34%,0.00%
+H3,"320,815","4,355",Q46,3468.92,100.00%,100.00%,100.00%,0.00%,41.09%,0.00%
+Sample Average,"479,200","4,362",Q45,4751.04,100.00%,100.00%,100.00%,0.00%,38.54%,0.00%
