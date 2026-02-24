@@ -1,0 +1,2129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>H3 - Read 5</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 18px;
+            margin: 20px 0;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 12px;
+            margin: 10px 0 20px 0;
+        }
+        .read-info {
+            padding: 15px;
+            background-color: #e3f2fd;
+            border-left: 4px solid #2196F3;
+            border-radius: 5px;
+            margin: 15px 0;
+            font-size: 12px;
+        }
+        .legend {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #fff9e6;
+            border-radius: 5px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 12px;
+        }
+        .color-box {
+            width: 30px;
+            height: 20px;
+            border: 2px solid #333;
+            flex-shrink: 0;
+        }
+        .sequence {
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            line-height: 2;
+            word-break: break-all;
+            padding: 25px;
+            background-color: #fafafa;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .stats {
+            padding: 15px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            margin: 15px 0;
+            font-size: 12px;
+            line-height: 1.8;
+        }
+        .section-label {
+            font-weight: bold;
+            font-size: 13px;
+            margin: 20px 0 10px 0;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-left: 4px solid #2196F3;
+            border-radius: 3px;
+        }
+        .segment-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 11px;
+        }
+        .segment-table th, .segment-table td {
+            padding: 8px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        .segment-table th {
+            background-color: #2196F3;
+            color: white;
+        }
+        .segment-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .in-frame {
+            color: green;
+            font-weight: bold;
+        }
+        .out-frame {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>H3 - Read #5</h1>
+        <div class="subtitle">Frame-Aware Sequence Analysis</div>
+        
+        <div class="read-info">
+            <b>Read ID:</b> m84137_260214_004236_s1/40372646/ccs<br>
+            <b>Total Length:</b> 858 bp<br>
+            <b>Structure:</b> 50 bp flanking | 722 bp core | 86 bp flanking
+        </div>
+        
+        <div class="legend">
+            <div class="legend-item">
+                <div class="color-box" style="background-color: #FFD700;"></div>
+                <span><b>YELLOW</b> = Flanking region (trinucleotides minimum)</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box" style="background-color: #FF0000;"></div>
+                <span><b>RED</b> = CAG repeat (in frame)</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box" style="background-color: #8B0000;"></div>
+                <span><b>DARK RED</b> = CAG after interruption (may be out of frame)</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box" style="background-color: #0080FF;"></div>
+                <span><b>BRIGHT BLUE</b> = Out-of-frame pattern (CAGCACAG, CAGCAAGCAG, CAGAGCAG)</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box" style="background-color: #FFA500;"></div>
+                <span><b>ORANGE</b> = Other interruption event</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box" style="background-color: #FFC0CB;"></div>
+                <span><b>PINK</b> = Flanking-derived motifs in core</span>
+            </div>
+        </div>
+        
+        <div class="section-label">UNCOLORED FULL SEQUENCE</div>
+        <div class="sequence">
+            TGGCGACCCTGGAAAAGCTGATGAAGGCCTTCGAGTCCCTCAAGTCCTTCCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCACAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCACAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCACAGCAGCAGCAGCAGCACAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAGCAACAGCCGCCACCGCCGCCGCCGCCGCCGCCGCCTCCTCAGCTTCCTCAGCCGCCGCCGCAGGCACAGCCGCTGCTGCCTCAGCC
+        </div>
+        
+        <div class="section-label">COLORED FULL SEQUENCE</div>
+        <div class="sequence">
+<span style="color: #FFD700;">T</span><span style="color: #FFD700;">G</span><span style="color: #FFD700;">G</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">G</span><span style="color: #FFD700;">A</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">T</span><span style="color: #FFD700;">G</span><span style="color: #FFD700;">G</span><span style="color: #FFD700;">A</span><span style="color: #FFD700;">A</span><span style="color: #FFD700;">A</span><span style="color: #FFD700;">A</span><span style="color: #FFD700;">G</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">T</span><span style="color: #FFD700;">G</span><span style="color: #FFD700;">A</span><span style="color: #FFD700;">T</span><span style="color: #FFD700;">G</span><span style="color: #FFD700;">A</span><span style="color: #FFD700;">A</span><span style="color: #FFD700;">G</span><span style="color: #FFD700;">G</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">T</span><span style="color: #FFD700;">T</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">G</span><span style="color: #FFD700;">A</span><span style="color: #FFD700;">G</span><span style="color: #FFD700;">T</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">T</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">A</span><span style="color: #FFD700;">A</span><span style="color: #FFD700;">G</span><span style="color: #FFD700;">T</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">T</span><span style="color: #FFD700;">T</span><span style="color: #FFD700;">C</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">A</span><span style="color: #FFD700;">A</span><span style="color: #FFD700;">G</span><span style="color: #8B0000;">C</span><span style="color: #8B0000;">A</span><span style="color: #8B0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FFA500;">C</span><span style="color: #FFA500;">A</span><span style="color: #8B0000;">C</span><span style="color: #8B0000;">A</span><span style="color: #8B0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FFA500;">C</span><span style="color: #FFA500;">A</span><span style="color: #8B0000;">C</span><span style="color: #8B0000;">A</span><span style="color: #8B0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FFA500;">C</span><span style="color: #FFA500;">A</span><span style="color: #8B0000;">C</span><span style="color: #8B0000;">A</span><span style="color: #8B0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FFA500;">C</span><span style="color: #FFA500;">A</span><span style="color: #8B0000;">C</span><span style="color: #8B0000;">A</span><span style="color: #8B0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FFA500;">C</span><span style="color: #FFA500;">G</span><span style="color: #8B0000;">C</span><span style="color: #8B0000;">A</span><span style="color: #8B0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FF0000;">C</span><span style="color: #FF0000;">A</span><span style="color: #FF0000;">G</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">A</span><span style="color: #FFD700;">A</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">A</span><span style="color: #FFD700;">G</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">G</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">A</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">G</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">G</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">G</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">G</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">G</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">G</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">G</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">T</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">T</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">A</span><span style="color: #FFD700;">G</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">T</span><span style="color: #FFD700;">T</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">T</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">A</span><span style="color: #FFD700;">G</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">G</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">G</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">G</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">A</span><span style="color: #FFD700;">G</span><span style="color: #FFD700;">G</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">A</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">A</span><span style="color: #FFD700;">G</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">G</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">T</span><span style="color: #FFD700;">G</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">T</span><span style="color: #FFD700;">G</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">T</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">A</span><span style="color: #FFD700;">G</span><span style="color: #FFD700;">C</span><span style="color: #FFD700;">C</span>
+        </div>
+        
+        <div class="section-label">DETAILED SEGMENT BREAKDOWN</div>
+        <table class="segment-table">
+            <thead>
+                <tr>
+                    <th>Position</th>
+                    <th>Type</th>
+                    <th>Sequence</th>
+                    <th>Length</th>
+                    <th>Frame Status</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+                    <td>0-3</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>3-6</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>6-9</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>9-12</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>12-15</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>15-18</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>18-21</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>21-24</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>24-27</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>27-30</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>30-33</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>33-36</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>36-39</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>39-42</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>42-45</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>45-48</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>48-51</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>51-54</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>54-57</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>57-60</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>60-63</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>63-66</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>66-69</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>69-72</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>72-75</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>75-78</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>78-81</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>81-84</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>84-87</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>87-90</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>90-93</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>93-96</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>96-99</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>99-102</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>102-105</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>105-109</td>
+                    <td><b>EVENT</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAAG</td>
+                    <td>4 bp</td>
+                    <td><span class="out-frame">✗ Next CAG shifted by 1</span></td>
+                </tr>
+
+                <tr>
+                    <td>109-112</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="out-frame">✗ OUT OF FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>112-115</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>115-118</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>118-121</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>121-124</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>124-127</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>127-130</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>130-133</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>133-136</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>136-139</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>139-142</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>142-145</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>145-148</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>148-151</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>151-154</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>154-157</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>157-160</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>160-163</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>163-166</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>166-169</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>169-172</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>172-175</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>175-178</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>178-181</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>181-184</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>184-187</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>187-190</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>190-193</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>193-196</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>196-199</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>199-202</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>202-205</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>205-208</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>208-211</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>211-214</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>214-217</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>217-220</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>220-223</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>223-226</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>226-229</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>229-232</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>232-235</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>235-238</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>238-241</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>241-244</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>244-247</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>247-250</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>250-253</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>253-256</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>256-259</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>259-262</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>262-265</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>265-268</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>268-271</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>271-274</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>274-277</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>277-280</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>280-283</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>283-286</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>286-289</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>289-292</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>292-295</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>295-298</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>298-301</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>301-304</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>304-307</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>307-310</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>310-313</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>313-316</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>316-319</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>319-322</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>322-325</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>325-328</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>328-331</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>331-334</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>334-337</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>337-340</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>340-343</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>343-346</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>346-349</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>349-352</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>352-355</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>355-358</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>358-361</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>361-364</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>364-367</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>367-370</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>370-373</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>373-376</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>376-379</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>379-382</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>382-385</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>385-388</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>388-391</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>391-394</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>394-396</td>
+                    <td><b>EVENT</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CA</td>
+                    <td>2 bp</td>
+                    <td><span class="out-frame">✗ Next CAG shifted by 2</span></td>
+                </tr>
+
+                <tr>
+                    <td>396-399</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="out-frame">✗ OUT OF FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>399-402</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>402-405</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>405-408</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>408-411</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>411-414</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>414-417</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>417-420</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>420-423</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>423-426</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>426-429</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>429-432</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>432-435</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>435-438</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>438-441</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>441-444</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>444-447</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>447-450</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>450-452</td>
+                    <td><b>EVENT</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CA</td>
+                    <td>2 bp</td>
+                    <td><span class="out-frame">✗ Next CAG shifted by 2</span></td>
+                </tr>
+
+                <tr>
+                    <td>452-455</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="out-frame">✗ OUT OF FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>455-458</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>458-461</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>461-464</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>464-467</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>467-470</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>470-473</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>473-476</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>476-479</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>479-482</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>482-485</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>485-488</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>488-491</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>491-494</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>494-497</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>497-500</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>500-503</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>503-506</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>506-509</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>509-512</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>512-515</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>515-518</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>518-521</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>521-524</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>524-527</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>527-530</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>530-533</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>533-536</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>536-539</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>539-542</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>542-545</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>545-548</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>548-551</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>551-554</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>554-557</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>557-560</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>560-563</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>563-566</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>566-569</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>569-572</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>572-575</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>575-578</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>578-581</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>581-584</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>584-587</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>587-590</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>590-593</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>593-595</td>
+                    <td><b>EVENT</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CA</td>
+                    <td>2 bp</td>
+                    <td><span class="out-frame">✗ Next CAG shifted by 2</span></td>
+                </tr>
+
+                <tr>
+                    <td>595-598</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="out-frame">✗ OUT OF FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>598-601</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>601-604</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>604-607</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>607-610</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>610-612</td>
+                    <td><b>EVENT</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CA</td>
+                    <td>2 bp</td>
+                    <td><span class="out-frame">✗ Next CAG shifted by 2</span></td>
+                </tr>
+
+                <tr>
+                    <td>612-615</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="out-frame">✗ OUT OF FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>615-618</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>618-621</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>621-624</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>624-627</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>627-630</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>630-633</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>633-636</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>636-639</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>639-642</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>642-645</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>645-648</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>648-651</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>651-654</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>654-657</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>657-660</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>660-663</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>663-666</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>666-669</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>669-672</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>672-675</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>675-678</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>678-680</td>
+                    <td><b>EVENT</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CG</td>
+                    <td>2 bp</td>
+                    <td><span class="out-frame">✗ Next CAG shifted by 2</span></td>
+                </tr>
+
+                <tr>
+                    <td>680-683</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="out-frame">✗ OUT OF FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>683-686</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>686-689</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>689-692</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>692-695</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>695-698</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>698-701</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>701-704</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>704-707</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>707-710</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>710-713</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>713-716</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>716-719</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+                <tr>
+                    <td>719-722</td>
+                    <td><b>CAG</b></td>
+                    <td style="font-family: 'Courier New'; font-weight: bold;">CAG</td>
+                    <td>3 bp</td>
+                    <td><span class="in-frame">✓ IN FRAME</span></td>
+                </tr>
+
+            </tbody>
+        </table>
+        
+        <div class="section-label">SECTION VISUALIZATION</div>
+        <div class="stats">
+            <b style="color: #FFD700;">5' UPSTREAM FLANKING (50 bp):</b><br>
+            <span style="color: #FFD700; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px;">TGGCGACCCTGGAAAAGCTGATGAAGGCCTTCGAGTCCCTCAAGTCCTTC</span><br><br>
+            
+            <b>CORE REPEAT (722 bp) - SEGMENTED VIEW:</b><br>
+            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FFD700; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAAG</span> <i style='font-size: 11px;'>[EVENT: CAAG]</i><br>            <span style="color: #8B0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (out of frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FFA500; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CA</span> <i style='font-size: 11px;'>[EVENT: CA]</i><br>            <span style="color: #8B0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (out of frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FFA500; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CA</span> <i style='font-size: 11px;'>[EVENT: CA]</i><br>            <span style="color: #8B0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (out of frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FFA500; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CA</span> <i style='font-size: 11px;'>[EVENT: CA]</i><br>            <span style="color: #8B0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (out of frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FFA500; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CA</span> <i style='font-size: 11px;'>[EVENT: CA]</i><br>            <span style="color: #8B0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (out of frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FFA500; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CG</span> <i style='font-size: 11px;'>[EVENT: CG]</i><br>            <span style="color: #8B0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (out of frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>            <span style="color: #FF0000; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px; font-weight: bold;">CAG</span> <i style='font-size: 11px;'>[CAG (in frame)]</i><br>
+            <br>
+            <b style="color: #FFD700;">3' DOWNSTREAM FLANKING (86 bp):</b><br>
+            <span style="color: #FFD700; font-family: 'Courier New'; font-size: 13px; letter-spacing: 1px;">CAACAGCCGCCACCGCCGCCGCCGCCGCCGCCGCCTCCTCAGCTTCCTCAGCCGCCGCCGCAGGCACAGCCGCTGCTGCCTCAGCC</span>
+        </div>
+    </div>
+</body>
+</html>
