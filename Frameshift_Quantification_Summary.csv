@@ -1,0 +1,10 @@
+Metric,H1,H3
+Sample Size,2298,1496
+Mean CAG (in frame),46.9,55.3
+Mean CAG (out of frame),2.7,4.1
+% CAG in frame,95.0%,94.0%
+% CAG out of frame,5.0%,6.0%
+Reads with frameshifts,220/2298,173/1496
+Reads with out-of-frame downstream,178/2298,141/1496
+Mean frameshift events,0.17,0.27
+Reads with OOF in downstream (%),7.7%,9.4%
