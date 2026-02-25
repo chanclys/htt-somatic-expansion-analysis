@@ -1,0 +1,21 @@
+Metric,H1,H3
+Sample Size,2298,1496
+Mean Core Length (bp),151,182
+Median Core Length (bp),135,171
+Min Core Length (bp),111,138
+Max Core Length (bp),4180,3235
+Std Dev Core Length,126,120
+,,
+Mean CAG Units,47.0,55.5
+Median CAG Units,45,56
+Mean CAA Units,0.04,0.06
+Mean CGA Units,0.00,0.00
+,,
+Mean Events per Read,0.31,0.48
+Reads with Events (%),9.8%,11.8%
+Mean Event Length (bp),0.3,0.3
+Frameshift Events (avg),0.27,0.40
+In-Frame Events (avg),0.04,0.08
+,,
+Reads with OOF Patterns (%),6.7%,7.6%
+Mean OOF Patterns per Read,0.12,0.18
