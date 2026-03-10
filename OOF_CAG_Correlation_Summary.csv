@@ -1,0 +1,5 @@
+Sample,Total Reads,OOF Reads,% OOF,Mean CAG (OOF),Mean CAG (Non-OOF),Min CAG (OOF),Max CAG (OOF)
+Control (Normal),287,34,11.8%,16.6,18.5,13,19
+Control (Expanded),2474,36,1.5%,18.1,20.0,14,21
+H1,2298,154,6.7%,69.0,48.6,33,1392
+H3,1496,114,7.6%,76.1,58.8,39,1075
