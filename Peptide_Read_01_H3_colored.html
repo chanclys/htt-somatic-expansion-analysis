@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>H3 - m84137_260214_004236_s1/2097690/ccs - Peptide Sequence</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 12px;
+            margin: 10px 0 20px 0;
+        }
+        .stats {
+            padding: 15px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            margin: 15px 0;
+            font-size: 12px;
+            line-height: 1.8;
+        }
+        .legend {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin: 15px 0;
+            padding: 15px;
+            background-color: #fff9e6;
+            border-radius: 5px;
+            font-size: 11px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .color-box {
+            width: 20px;
+            height: 20px;
+            border: 1px solid #333;
+            border-radius: 3px;
+        }
+        .peptide-sequence {
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            line-height: 2.5;
+            word-break: break-all;
+            padding: 25px;
+            background-color: #fafafa;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .section-label {
+            font-weight: bold;
+            font-size: 13px;
+            margin: 20px 0 10px 0;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-left: 4px solid #2196F3;
+            border-radius: 3px;
+        }
+        .amino-acid {
+            display: inline-block;
+            padding: 2px 4px;
+            border-radius: 2px;
+            margin: 1px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 11px;
+        }
+        table th, table td {
+            padding: 8px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        table th {
+            background-color: #2196F3;
+            color: white;
+        }
+        table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>PEPTIDE SEQUENCE ANALYSIS: H3 - m84137_260214_004236_s1/2097690/ccs</h1>
+        <div class="subtitle">Out-of-Frame Events and Amino Acid Translation</div>
+        
+        <div class="stats">
+            <b>DNA Metrics:</b><br>
+            Core repeat length: 2958 bp | 
+            CAG units (frame 0): 8 aa<br>
+            OOF events found: 31<br>
+            Sample: H3
+        </div>
+        
+        <div class="legend">
+            <div class="legend-item">
+                <div class="color-box" style="background-color: #FF0000;"></div>
+                <span><b>RED</b> = CAG repeats (Q)</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box" style="background-color: #0080FF;"></div>
+                <span><b>BRIGHT BLUE</b> = OOF event peptide</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box" style="background-color: #8B0000;"></div>
+                <span><b>DARK RED</b> = Downstream (wrong frame)</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box" style="background-color: #FFD700;"></div>
+                <span><b>YELLOW</b> = Hydrophobic</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box" style="background-color: #87CEEB;"></div>
+                <span><b>SKY BLUE</b> = Hydrophilic</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box" style="background-color: #FF6B6B;"></div>
+                <span><b>LIGHT RED</b> = Positive charge</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box" style="background-color: #4169E1;"></div>
+                <span><b>BLUE</b> = Negative charge</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box" style="background-color: #9370DB;"></div>
+                <span><b>PURPLE</b> = Special (G, P)</span>
+            </div>
+        </div>
+        
+        <div class="section-label">FULL PEPTIDE SEQUENCE - COLORED BY AMINO ACID PROPERTIES</div>
+        <div class="peptide-sequence">
+<span style="color: #FF0000; font-weight: bold;">Q</span><span style="color: #FF0000; font-weight: bold;">Q</span><span style="color: #FF0000; font-weight: bold;">Q</span><span style="color: #FF6B6B; font-weight: bold;">R</span><span style="color: #87CEEB; font-weight: bold;">S</span><span style="color: #87CEEB; font-weight: bold;">S</span><span style="color: #87CEEB; font-weight: bold;">S</span><span style="color: #FF0000; font-weight: bold;">*</span>
+        </div>
+        
+        <div class="section-label">OOF EVENTS ANALYSIS</div>
+<table><thead><tr><th>Pattern</th><th>Position</th><th>Frame Shift</th><th>Peptide Impact</th><th>Sequence Context</th></tr></thead><tbody>
+                <tr>
+                    <td><b>CAGCACAG</b></td>
+                    <td>aa 44-47</td>
+                    <td><span style="color: red; font-weight: bold;">FRAME +2</span></td>
+                    <td><span style="color: #0080FF; font-weight: bold;">QH</span></td>
+                    <td><code style="font-size: 10px;">CAGCAGCTAGCAGCAGCAGC...AGCAAGCAGCAGCAGCAGCA</code></td>
+                </tr>
+            
+                <tr>
+                    <td><b>CAGCACAG</b></td>
+                    <td>aa 663-666</td>
+                    <td><span style="color: red; font-weight: bold;">FRAME +2</span></td>
+                    <td><span style="color: #0080FF; font-weight: bold;">QH</span></td>
+                    <td><code style="font-size: 10px;">CAGCGCAGCAGAGCAGCAGC...AGCAGCAGCAGCAGCAGCAG</code></td>
+                </tr>
+            
+                <tr>
+                    <td><b>CAGCACAG</b></td>
+                    <td>aa 719-723</td>
+                    <td><span style="color: red; font-weight: bold;">FRAME +2</span></td>
+                    <td><span style="color: #0080FF; font-weight: bold;">QH</span></td>
+                    <td><code style="font-size: 10px;">CAGCAGCAGCAAGCAGCTGC...AGCAGCAGCAGCAGCAGCAG</code></td>
+                </tr>
+            
+                <tr>
+                    <td><b>CAGCAAGCAG</b></td>
+                    <td>aa 49-53</td>
+                    <td><span style="color: red; font-weight: bold;">FRAME +1</span></td>
+                    <td><span style="color: #0080FF; font-weight: bold;">QQA</span></td>
+                    <td><code style="font-size: 10px;">AGCAGCAGCGCAGCAGCACA...AGCAGCAGCAGCAGCAGCAG</code></td>
+                </tr>
+            
+                <tr>
+                    <td><b>CAGCAAGCAG</b></td>
+                    <td>aa 99-103</td>
+                    <td><span style="color: red; font-weight: bold;">FRAME +1</span></td>
+                    <td><span style="color: #0080FF; font-weight: bold;">QQA</span></td>
+                    <td><code style="font-size: 10px;">GCAGCAGCAGCGCAGCAGCA...AGCGCAGCAGCAGCAGCAGC</code></td>
+                </tr>
+            
+                <tr>
+                    <td><b>CAGCAAGCAG</b></td>
+                    <td>aa 173-177</td>
+                    <td><span style="color: red; font-weight: bold;">FRAME +1</span></td>
+                    <td><span style="color: #0080FF; font-weight: bold;">QQA</span></td>
+                    <td><code style="font-size: 10px;">CGCAGCAGCAGGCAGCAGCA...GCAGCAGCAGCAGCAGCAGC</code></td>
+                </tr>
+            
+                <tr>
+                    <td><b>CAGCAAGCAG</b></td>
+                    <td>aa 213-217</td>
+                    <td><span style="color: red; font-weight: bold;">FRAME +1</span></td>
+                    <td><span style="color: #0080FF; font-weight: bold;">QQA</span></td>
+                    <td><code style="font-size: 10px;">CAGCAGCAGCAGCAGCAGCA...CAGCAGCAGCAGCAGCAGCA</code></td>
+                </tr>
+            
+                <tr>
+                    <td><b>CAGCAAGCAG</b></td>
+                    <td>aa 258-262</td>
+                    <td><span style="color: red; font-weight: bold;">FRAME +1</span></td>
+                    <td><span style="color: #0080FF; font-weight: bold;">QQA</span></td>
+                    <td><code style="font-size: 10px;">AGCAGCAGCAGCAGGCAGCA...CCGCAGCAGCAGCCAGAGCA</code></td>
+                </tr>
+            
+                <tr>
+                    <td><b>CAGCAAGCAG</b></td>
+                    <td>aa 261-265</td>
+                    <td><span style="color: red; font-weight: bold;">FRAME +1</span></td>
+                    <td><span style="color: #0080FF; font-weight: bold;">QQA</span></td>
+                    <td><code style="font-size: 10px;">GCAGGCAGCAGCAGCAGCAG...AGCCAGAGCAGCAGCAAGCA</code></td>
+                </tr>
+            
+                <tr>
+                    <td><b>CAGCAAGCAG</b></td>
+                    <td>aa 272-276</td>
+                    <td><span style="color: red; font-weight: bold;">FRAME +1</span></td>
+                    <td><span style="color: #0080FF; font-weight: bold;">QQA</span></td>
+                    <td><code style="font-size: 10px;">AGCAAGCAGCCGCAGCAGCA...AGCAGCAGCAGCAGCAGCAG</code></td>
+                </tr>
+            
+                <tr>
+                    <td><b>CAGCAAGCAG</b></td>
+                    <td>aa 291-295</td>
+                    <td><span style="color: red; font-weight: bold;">FRAME +1</span></td>
+                    <td><span style="color: #0080FF; font-weight: bold;">QQA</span></td>
+                    <td><code style="font-size: 10px;">CAGCAGCAGCAGCAGCAGCA...AGGCAGCAGCAGCAGCTGAG</code></td>
+                </tr>
+            
+                <tr>
+                    <td><b>CAGCAAGCAG</b></td>
+                    <td>aa 337-341</td>
+                    <td><span style="color: red; font-weight: bold;">FRAME +1</span></td>
+                    <td><span style="color: #0080FF; font-weight: bold;">QQA</span></td>
+                    <td><code style="font-size: 10px;">GCAGCAGCAGCAGCTGCAGC...AGCGCAGCAGCAGCAGCAGC</code></td>
+                </tr>
+            
+                <tr>
+                    <td><b>CAGCAAGCAG</b></td>
+                    <td>aa 438-442</td>
+                    <td><span style="color: red; font-weight: bold;">FRAME +1</span></td>
+                    <td><span style="color: #0080FF; font-weight: bold;">QQA</span></td>
+                    <td><code style="font-size: 10px;">CAGCAGCAGCAGCAGCAGCA...AGCAGCAGCAGCAGCAGCAG</code></td>
+                </tr>
+            
+                <tr>
+                    <td><b>CAGCAAGCAG</b></td>
+                    <td>aa 475-479</td>
+                    <td><span style="color: red; font-weight: bold;">FRAME +1</span></td>
+                    <td><span style="color: #0080FF; font-weight: bold;">QQA</span></td>
+                    <td><code style="font-size: 10px;">GCAGCAGCAGCGCAGCAGCA...AGCAGCAGCAGCAGCAGAGC</code></td>
+                </tr>
+            
+                <tr>
+                    <td><b>CAGCAAGCAG</b></td>
+                    <td>aa 578-582</td>
+                    <td><span style="color: red; font-weight: bold;">FRAME +1</span></td>
+                    <td><span style="color: #0080FF; font-weight: bold;">QQA</span></td>
+                    <td><code style="font-size: 10px;">CAGCAGCAGCAGCAGCAGCA...AGGCAGCAGCAGCAGCGCAG</code></td>
+                </tr>
+            
+                <tr>
+                    <td><b>CAGCAAGCAG</b></td>
+                    <td>aa 711-715</td>
+                    <td><span style="color: red; font-weight: bold;">FRAME +1</span></td>
+                    <td><span style="color: #0080FF; font-weight: bold;">QQA</span></td>
+                    <td><code style="font-size: 10px;">AGCAGCAGCAGCAGCAGCAG...AGAGCAGCACAGCAGCAGCA</code></td>
+                </tr>
+            
+                <tr>
+                    <td><b>CAGCAAGCAG</b></td>
+                    <td>aa 871-875</td>
+                    <td><span style="color: red; font-weight: bold;">FRAME +1</span></td>
+                    <td><span style="color: #0080FF; font-weight: bold;">QQA</span></td>
+                    <td><code style="font-size: 10px;">GCAGCAGCAGCAGCAGCAGC...GCAGCAAGCTGCAGCAGCAA</code></td>
+                </tr>
+            
+                <tr>
+                    <td><b>CAGCAAGCAG</b></td>
+                    <td>aa 883-887</td>
+                    <td><span style="color: red; font-weight: bold;">FRAME +1</span></td>
+                    <td><span style="color: #0080FF; font-weight: bold;">QQA</span></td>
+                    <td><code style="font-size: 10px;">AAGCAGCAGCAGCGCAGCAG...CAGCGCAGCTGCAGCAGCAG</code></td>
+                </tr>
+            
+                <tr>
+                    <td><b>CAGCAAGCAG</b></td>
+                    <td>aa 886-890</td>
+                    <td><span style="color: red; font-weight: bold;">FRAME +1</span></td>
+                    <td><span style="color: #0080FF; font-weight: bold;">QQA</span></td>
+                    <td><code style="font-size: 10px;">AGCGCAGCAGCAAGCTGCAG...GCAGCAGCAGCAGCAGCAGC</code></td>
+                </tr>
+            
+                <tr>
+                    <td><b>CAGCAAGCAG</b></td>
+                    <td>aa 977-981</td>
+                    <td><span style="color: red; font-weight: bold;">FRAME +1</span></td>
+                    <td><span style="color: #0080FF; font-weight: bold;">QQA</span></td>
+                    <td><code style="font-size: 10px;">GCAGCAGCAGCAGCAGCAGC...AGCAGCAGCAGCAGCAGCAG</code></td>
+                </tr>
+            
+                <tr>
+                    <td><b>CAGAGCAG</b></td>
+                    <td>aa 158-162</td>
+                    <td><span style="color: red; font-weight: bold;">FRAME +2</span></td>
+                    <td><span style="color: #0080FF; font-weight: bold;">QS</span></td>
+                    <td><code style="font-size: 10px;">AGCAGCAGCAGGCAGCAGCA...GCAGCAGGCAGCAGCAGCAG</code></td>
+                </tr>
+            
+                <tr>
+                    <td><b>CAGAGCAG</b></td>
+                    <td>aa 269-272</td>
+                    <td><span style="color: red; font-weight: bold;">FRAME +2</span></td>
+                    <td><span style="color: #0080FF; font-weight: bold;">QS</span></td>
+                    <td><code style="font-size: 10px;">CAAGCAGCAGCAAGCAGCCG...CAGCAGCAGCAGCAGCAGCA</code></td>
+                </tr>
+            
+                <tr>
+                    <td><b>CAGAGCAG</b></td>
+                    <td>aa 307-311</td>
+                    <td><span style="color: red; font-weight: bold;">FRAME +2</span></td>
+                    <td><span style="color: #0080FF; font-weight: bold;">QS</span></td>
+                    <td><code style="font-size: 10px;">CAGGCAGCAGCAGCAGCTGA...AGCAGCAGCAGCGCAGCGCA</code></td>
+                </tr>
+            
+                <tr>
+                    <td><b>CAGAGCAG</b></td>
+                    <td>aa 353-356</td>
+                    <td><span style="color: red; font-weight: bold;">FRAME +2</span></td>
+                    <td><span style="color: #0080FF; font-weight: bold;">QS</span></td>
+                    <td><code style="font-size: 10px;">GCAGCGCAGCAGCAGCAGCA...AGCAGCAGCAGCAGCAGCGC</code></td>
+                </tr>
+            
+                <tr>
+                    <td><b>CAGAGCAG</b></td>
+                    <td>aa 406-410</td>
+                    <td><span style="color: red; font-weight: bold;">FRAME +2</span></td>
+                    <td><span style="color: #0080FF; font-weight: bold;">QS</span></td>
+                    <td><code style="font-size: 10px;">CAGCAGCAGCAGCAGCAGCA...AGCAGCAGTCAGCAGCAGCA</code></td>
+                </tr>
+            
+                <tr>
+                    <td><b>CAGAGCAG</b></td>
+                    <td>aa 486-489</td>
+                    <td><span style="color: red; font-weight: bold;">FRAME +2</span></td>
+                    <td><span style="color: #0080FF; font-weight: bold;">QS</span></td>
+                    <td><code style="font-size: 10px;">AAGCAGCAGCAGCAGCAGCA...AGCAGCAGCAGCAGCAGCAG</code></td>
+                </tr>
+            
+                <tr>
+                    <td><b>CAGAGCAG</b></td>
+                    <td>aa 509-512</td>
+                    <td><span style="color: red; font-weight: bold;">FRAME +2</span></td>
+                    <td><span style="color: #0080FF; font-weight: bold;">QS</span></td>
+                    <td><code style="font-size: 10px;">AGCGCAGCAGCAGCAGCAGC...AGGCAGCAGCAGCAGCAGCA</code></td>
+                </tr>
+            
+                <tr>
+                    <td><b>CAGAGCAG</b></td>
+                    <td>aa 621-624</td>
+                    <td><span style="color: red; font-weight: bold;">FRAME +2</span></td>
+                    <td><span style="color: #0080FF; font-weight: bold;">QS</span></td>
+                    <td><code style="font-size: 10px;">GCAGCGCAGCAGCAGCAGCA...AGCAGCAGCAGCAGCAGCAG</code></td>
+                </tr>
+            
+                <tr>
+                    <td><b>CAGAGCAG</b></td>
+                    <td>aa 655-659</td>
+                    <td><span style="color: red; font-weight: bold;">FRAME +2</span></td>
+                    <td><span style="color: #0080FF; font-weight: bold;">QS</span></td>
+                    <td><code style="font-size: 10px;">ACAACAGCAGCAGCAGCAGC...GCAGCAGCACAGCAGCAGCA</code></td>
+                </tr>
+            
+                <tr>
+                    <td><b>CAGAGCAG</b></td>
+                    <td>aa 718-721</td>
+                    <td><span style="color: red; font-weight: bold;">FRAME +2</span></td>
+                    <td><span style="color: #0080FF; font-weight: bold;">QS</span></td>
+                    <td><code style="font-size: 10px;">GACAGCAGCAGCAGCAAGCA...GCAGCAGCAGCAGCAGCAGC</code></td>
+                </tr>
+            
+                <tr>
+                    <td><b>CAGAGCAG</b></td>
+                    <td>aa 920-923</td>
+                    <td><span style="color: red; font-weight: bold;">FRAME +2</span></td>
+                    <td><span style="color: #0080FF; font-weight: bold;">QS</span></td>
+                    <td><code style="font-size: 10px;">CAGCAGCAGCAGCAGCAGCA...AGCAGCAGCAGCAGCGCAGC</code></td>
+                </tr>
+            </tbody></table>
+        <div class="section-label">INTERPRETATION</div>
+        <div class="stats">
+            <b>What this means:</b><br><br>
+            
+            <b>Normal CAG repeat:</b> Q-Q-Q-Q-Q-Q-Q-Q-Q-Q (all glutamine)<br>
+            <span style="color: #FF0000;">RED amino acids above show normal CAG codons</span><br><br>
+            
+            <b>OOF Event Impact:</b><br>
+            When CAGCACAG/CAGCAAGCAG/CAGAGCAG appears:<br>
+            1. OOF sequence translated as <span style="color: #0080FF;">BRIGHT BLUE</span><br>
+            2. Creates wrong amino acids (Q-H or Q-N-K)<br>
+            3. Breaks the glutamine homopolymer repeat<br>
+            4. Downstream codons read in WRONG FRAME<br><br>
+            
+            <b>Downstream Consequence:</b><br>
+            <span style="color: #8B0000;">DARK RED amino acids = completely wrong sequence</span><br>
+            Different amino acids, different charge, different properties<br>
+            Protein CANNOT fold properly → likely DEGRADED<br><br>
+            
+            <b>Biological Implication:</b><br>
+            ✓ OOF mutations = Non-functional huntingtin<br>
+            ✓ May actually PROTECT the cell from toxicity<br>
+            ✗ But protein cannot perform its normal functions
+        </div>
+    </div>
+</body>
+</html>

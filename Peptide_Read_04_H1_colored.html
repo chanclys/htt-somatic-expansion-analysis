@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>H1 - m84137_260214_004236_s1/93131077/ccs - Peptide Sequence</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        .subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 12px;
+            margin: 10px 0 20px 0;
+        }
+        .stats {
+            padding: 15px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            margin: 15px 0;
+            font-size: 12px;
+            line-height: 1.8;
+        }
+        .legend {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin: 15px 0;
+            padding: 15px;
+            background-color: #fff9e6;
+            border-radius: 5px;
+            font-size: 11px;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .color-box {
+            width: 20px;
+            height: 20px;
+            border: 1px solid #333;
+            border-radius: 3px;
+        }
+        .peptide-sequence {
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            line-height: 2.5;
+            word-break: break-all;
+            padding: 25px;
+            background-color: #fafafa;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .section-label {
+            font-weight: bold;
+            font-size: 13px;
+            margin: 20px 0 10px 0;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-left: 4px solid #2196F3;
+            border-radius: 3px;
+        }
+        .amino-acid {
+            display: inline-block;
+            padding: 2px 4px;
+            border-radius: 2px;
+            margin: 1px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 11px;
+        }
+        table th, table td {
+            padding: 8px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        table th {
+            background-color: #2196F3;
+            color: white;
+        }
+        table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>PEPTIDE SEQUENCE ANALYSIS: H1 - m84137_260214_004236_s1/93131077/ccs</h1>
+        <div class="subtitle">Out-of-Frame Events and Amino Acid Translation</div>
+        
+        <div class="stats">
+            <b>DNA Metrics:</b><br>
+            Core repeat length: 514 bp | 
+            CAG units (frame 0): 171 aa<br>
+            OOF events found: 7<br>
+            Sample: H1
+        </div>
+        
+        <div class="legend">
+            <div class="legend-item">
+                <div class="color-box" style="background-color: #FF0000;"></div>
+                <span><b>RED</b> = CAG repeats (Q)</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box" style="background-color: #0080FF;"></div>
+                <span><b>BRIGHT BLUE</b> = OOF event peptide</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box" style="background-color: #8B0000;"></div>
+                <span><b>DARK RED</b> = Downstream (wrong frame)</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box" style="background-color: #FFD700;"></div>
+                <span><b>YELLOW</b> = Hydrophobic</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box" style="background-color: #87CEEB;"></div>
+                <span><b>SKY BLUE</b> = Hydrophilic</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box" style="background-color: #FF6B6B;"></div>
+                <span><b>LIGHT RED</b> = Positive charge</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box" style="background-color: #4169E1;"></div>
+                <span><b>BLUE</b> = Negative charge</span>
+            </div>
+            <div class="legend-item">
+                <div class="color-box" style="background-color: #9370DB;"></div>
+                <span><b>PURPLE</b> = Special (G, P)</span>
+            </div>
+        </div>
+        
+        <div class="section-label">FULL PEPTIDE SEQUENCE - COLORED BY AMINO ACID PROPERTIES</div>
+        <div class="peptide-sequence">
+<span style="color: #FF0000; font-weight: bold;">Q</span><span style="color: #FF0000; font-weight: bold;">Q</span><span style="color: #FF6B6B; font-weight: bold;">R</span><span style="color: #87CEEB; font-weight: bold;">S</span><span style="color: #87CEEB; font-weight: bold;">S</span><span style="color: #87CEEB; font-weight: bold;">S</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #4169E1; font-weight: bold;">E</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FF6B6B; font-weight: bold;">R</span><span style="color: #87CEEB; font-weight: bold;">S</span><span style="color: #87CEEB; font-weight: bold;">Q</span><span style="color: #FFD700; font-weight: bold;">P</span><span style="color: #87CEEB; font-weight: bold;">Q</span><span style="color: #87CEEB; font-weight: bold;">Q</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #87CEEB; font-weight: bold;">S</span><span style="color: #87CEEB; font-weight: bold;">S</span><span style="color: #87CEEB; font-weight: bold;">S</span><span style="color: #87CEEB; font-weight: bold;">S</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #9370DB; font-weight: bold;">G</span><span style="color: #87CEEB; font-weight: bold;">S</span><span style="color: #87CEEB; font-weight: bold;">S</span><span style="color: #FF6B6B; font-weight: bold;">R</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #4169E1; font-weight: bold;">D</span><span style="color: #87CEEB; font-weight: bold;">S</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #87CEEB; font-weight: bold;">S</span><span style="color: #87CEEB; font-weight: bold;">S</span><span style="color: #87CEEB; font-weight: bold;">S</span><span style="color: #87CEEB; font-weight: bold;">S</span><span style="color: #87CEEB; font-weight: bold;">S</span><span style="color: #87CEEB; font-weight: bold;">S</span><span style="color: #87CEEB; font-weight: bold;">S</span><span style="color: #87CEEB; font-weight: bold;">S</span><span style="color: #87CEEB; font-weight: bold;">S</span><span style="color: #FF6B6B; font-weight: bold;">R</span><span style="color: #87CEEB; font-weight: bold;">Q</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #87CEEB; font-weight: bold;">S</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #87CEEB; font-weight: bold;">S</span><span style="color: #87CEEB; font-weight: bold;">S</span><span style="color: #87CEEB; font-weight: bold;">S</span><span style="color: #87CEEB; font-weight: bold;">Q</span><span style="color: #87CEEB; font-weight: bold;">Q</span><span style="color: #87CEEB; font-weight: bold;">Q</span><span style="color: #87CEEB; font-weight: bold;">Q</span><span style="color: #87CEEB; font-weight: bold;">Q</span><span style="color: #FF6B6B; font-weight: bold;">R</span><span style="color: #87CEEB; font-weight: bold;">S</span><span style="color: #87CEEB; font-weight: bold;">S</span><span style="color: #87CEEB; font-weight: bold;">T</span><span style="color: #87CEEB; font-weight: bold;">Q</span><span style="color: #87CEEB; font-weight: bold;">Q</span><span style="color: #87CEEB; font-weight: bold;">Q</span><span style="color: #87CEEB; font-weight: bold;">Q</span><span style="color: #87CEEB; font-weight: bold;">Q</span><span style="color: #FFD700; font-weight: bold;">P</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #87CEEB; font-weight: bold;">Q</span><span style="color: #87CEEB; font-weight: bold;">Q</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #87CEEB; font-weight: bold;">Q</span><span style="color: #87CEEB; font-weight: bold;">Q</span><span style="color: #87CEEB; font-weight: bold;">Q</span><span style="color: #87CEEB; font-weight: bold;">Q</span><span style="color: #FFD700; font-weight: bold;">P</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #87CEEB; font-weight: bold;">S</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #87CEEB; font-weight: bold;">Q</span><span style="color: #87CEEB; font-weight: bold;">Q</span><span style="color: #87CEEB; font-weight: bold;">Q</span><span style="color: #87CEEB; font-weight: bold;">Q</span><span style="color: #87CEEB; font-weight: bold;">Q</span><span style="color: #87CEEB; font-weight: bold;">Q</span><span style="color: #87CEEB; font-weight: bold;">Q</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #4169E1; font-weight: bold;">E</span><span style="color: #87CEEB; font-weight: bold;">Q</span><span style="color: #87CEEB; font-weight: bold;">Q</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span><span style="color: #FFD700; font-weight: bold;">A</span>
+        </div>
+        
+        <div class="section-label">OOF EVENTS ANALYSIS</div>
+<table><thead><tr><th>Pattern</th><th>Position</th><th>Frame Shift</th><th>Peptide Impact</th><th>Sequence Context</th></tr></thead><tbody>
+                <tr>
+                    <td><b>CAGCACAG</b></td>
+                    <td>aa 117-120</td>
+                    <td><span style="color: red; font-weight: bold;">FRAME +2</span></td>
+                    <td><span style="color: #0080FF; font-weight: bold;">QH</span></td>
+                    <td><code style="font-size: 10px;">CAGCAGCCGCAGCAGCAGCA...CAGCAGCAGCGCAGCAGCAG</code></td>
+                </tr>
+            
+                <tr>
+                    <td><b>CAGCAAGCAG</b></td>
+                    <td>aa 65-69</td>
+                    <td><span style="color: red; font-weight: bold;">FRAME +1</span></td>
+                    <td><span style="color: #0080FF; font-weight: bold;">QQA</span></td>
+                    <td><code style="font-size: 10px;">CAGCCGCAGCAGCAGACTCA...AGCAGCAGCAGCAGGCAAGC</code></td>
+                </tr>
+            
+                <tr>
+                    <td><b>CAGCAAGCAG</b></td>
+                    <td>aa 119-123</td>
+                    <td><span style="color: red; font-weight: bold;">FRAME +1</span></td>
+                    <td><span style="color: #0080FF; font-weight: bold;">QQA</span></td>
+                    <td><code style="font-size: 10px;">GCCGCAGCAGCAGCAGCAGC...AGCGCAGCAGCAGCAGCCTG</code></td>
+                </tr>
+            
+                <tr>
+                    <td><b>CAGCAAGCAG</b></td>
+                    <td>aa 150-154</td>
+                    <td><span style="color: red; font-weight: bold;">FRAME +1</span></td>
+                    <td><span style="color: #0080FF; font-weight: bold;">QQA</span></td>
+                    <td><code style="font-size: 10px;">AGCGCCGCAGCAGCGCAGCA...AGCCGCCGCAGAGCAGCAAG</code></td>
+                </tr>
+            
+                <tr>
+                    <td><b>CAGCAAGCAG</b></td>
+                    <td>aa 161-165</td>
+                    <td><span style="color: red; font-weight: bold;">FRAME +1</span></td>
+                    <td><span style="color: #0080FF; font-weight: bold;">QQA</span></td>
+                    <td><code style="font-size: 10px;">CAAGCAGCAGCAGCAGCAGC...AGCAGCAGCAGCAGCAGCAG</code></td>
+                </tr>
+            
+                <tr>
+                    <td><b>CAGAGCAG</b></td>
+                    <td>aa 46-50</td>
+                    <td><span style="color: red; font-weight: bold;">FRAME +2</span></td>
+                    <td><span style="color: #0080FF; font-weight: bold;">QS</span></td>
+                    <td><code style="font-size: 10px;">GCAGGCAAGCAGCAGCAGCG...AGCTGCGGCAGCCGCAGCAG</code></td>
+                </tr>
+            
+                <tr>
+                    <td><b>CAGAGCAG</b></td>
+                    <td>aa 159-162</td>
+                    <td><span style="color: red; font-weight: bold;">FRAME +2</span></td>
+                    <td><span style="color: #0080FF; font-weight: bold;">QS</span></td>
+                    <td><code style="font-size: 10px;">AGCAGCAAGCAGCAGCAGCA...AGCAGCAGCAGCAGCAGCAG</code></td>
+                </tr>
+            </tbody></table>
+        <div class="section-label">INTERPRETATION</div>
+        <div class="stats">
+            <b>What this means:</b><br><br>
+            
+            <b>Normal CAG repeat:</b> Q-Q-Q-Q-Q-Q-Q-Q-Q-Q (all glutamine)<br>
+            <span style="color: #FF0000;">RED amino acids above show normal CAG codons</span><br><br>
+            
+            <b>OOF Event Impact:</b><br>
+            When CAGCACAG/CAGCAAGCAG/CAGAGCAG appears:<br>
+            1. OOF sequence translated as <span style="color: #0080FF;">BRIGHT BLUE</span><br>
+            2. Creates wrong amino acids (Q-H or Q-N-K)<br>
+            3. Breaks the glutamine homopolymer repeat<br>
+            4. Downstream codons read in WRONG FRAME<br><br>
+            
+            <b>Downstream Consequence:</b><br>
+            <span style="color: #8B0000;">DARK RED amino acids = completely wrong sequence</span><br>
+            Different amino acids, different charge, different properties<br>
+            Protein CANNOT fold properly → likely DEGRADED<br><br>
+            
+            <b>Biological Implication:</b><br>
+            ✓ OOF mutations = Non-functional huntingtin<br>
+            ✓ May actually PROTECT the cell from toxicity<br>
+            ✗ But protein cannot perform its normal functions
+        </div>
+    </div>
+</body>
+</html>
