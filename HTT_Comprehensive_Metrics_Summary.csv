@@ -1,0 +1,5 @@
+Sample,Total Reads,With Events,Core Length (bp),CAG Units,OOF Patterns,Frameshift (Phase≠0),% CAG In-Frame,Flanking Motifs
+Control (Normal),287,66 (23.0%),56±3,18.3,34 (11.8%),250 (87.1%),88.8%,5.6
+Control (Expanded),2474,70 (2.8%),60±2,20.0,36 (1.5%),2415 (97.6%),98.7%,6.0
+H1,2298,226 (9.8%),151±126,50.0,154 (6.7%),2192 (95.4%),95.0%,16.1
+H3,1496,177 (11.8%),182±120,60.1,114 (7.6%),1429 (95.5%),93.9%,19.6
