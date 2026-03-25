@@ -1,0 +1,5 @@
+Sample,Total Reads,In-Frame,% In-Frame,Out-of-Frame,% OOF,Mean Repeat (OOF),Mean CAG (OOF)
+Control (Normal),287,37,12.9%,250,87.1%,56bp,18.5
+Control (Expanded),2474,59,2.4%,2415,97.6%,60bp,20.0
+H1,2298,106,4.6%,2192,95.4%,149bp,49.3
+H3,1496,67,4.5%,1429,95.5%,181bp,59.9
